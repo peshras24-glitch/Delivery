@@ -3,113 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peshras Delivery — Быстрая доставка еды в Исфаре</title>
-    <!-- Подключаем Tailwind CSS -->
+    <title>Peshras Delivery — Доставка еды в Исфаре</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Подключаем иконки Lucide -->
+    <!-- Иконки Lucide -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+        }
+        /* Фирменный градиент Peshras из логотипа */
+        .bg-peshras-gradient {
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+        }
+        .text-peshras-yellow {
+            color: #facc15;
+        }
+        .bg-peshras-yellow {
+            background-color: #facc15;
+        }
+        .border-peshras-yellow {
+            border-color: #facc15;
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-white min-h-screen flex flex-col justify-between">
+<body class="bg-gray-950 text-gray-100 min-h-screen pb-24">
 
-    <!-- 1. ШАПКА САЙТА (HEADER) -->
-    <header class="sticky top-0 z-50 bg-gray-900/95 backdrop-blur-md border-b border-gray-800 px-4 py-3">
+    <!-- 1. ВЕРХНЯЯ ШАПКА -->
+    <header class="sticky top-0 z-40 bg-gray-950/90 backdrop-blur-md border-b border-gray-800/80 px-4 py-3">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
-            <!-- Логотип -->
-            <a href="/" class="flex items-center gap-2 text-2xl font-black tracking-wider text-emerald-500">
-                <span>PESHRAS</span>
-                <span class="text-xs bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/20">DELIVERY</span>
+            <!-- Логотип + Название -->
+            <a href="/" class="flex items-center gap-2.5">
+                <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-emerald-400 via-emerald-600 to-emerald-800 p-0.5 shadow-lg shadow-emerald-900/30">
+                    <div class="w-full h-full bg-gray-950 rounded-[14px] flex items-center justify-center">
+                        <i data-lucide="zap" class="w-6 h-6 text-yellow-400 fill-yellow-400"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="text-xl font-black tracking-tight leading-none text-white flex items-center gap-1">
+                        PESHRAS <span class="text-yellow-400 text-xs font-bold px-1.5 py-0.5 rounded bg-yellow-400/10 border border-yellow-400/20">DELIVERY</span>
+                    </div>
+                    <div class="text-[10px] text-emerald-400 font-semibold tracking-wider uppercase mt-0.5">Служба доставки • Исфара</div>
+                </div>
             </a>
 
-            <!-- Адрес и Корзина -->
-            <div class="flex items-center gap-4">
-                <div class="hidden sm:flex items-center gap-1.5 text-sm text-gray-400 bg-gray-800 px-3 py-1.5 rounded-full">
-                    <i data-lucide="map-pin" class="w-4 h-4 text-emerald-500"></i>
-                    <span>Исфара</span>
-                </div>
-                
-                <button class="relative bg-emerald-500 hover:bg-emerald-600 text-black font-bold px-4 py-2 rounded-xl flex items-center gap-2 transition">
-                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
-                    <span>Корзина</span>
-                    <span id="cart-count" class="bg-black text-emerald-400 text-xs px-2 py-0.5 rounded-full font-extrabold">0</span>
-                </button>
+            <!-- Выбор города -->
+            <div class="flex items-center gap-1.5 bg-gray-900 border border-gray-800 text-xs font-semibold px-3 py-1.5 rounded-full text-gray-300">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-emerald-400"></i>
+                <span>Исфара</span>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-6 w-full space-y-8">
+    <main class="max-w-7xl mx-auto px-4 py-6 space-y-9">
 
-        <!-- 2. БАННЕР ЛОЯЛЬНОСТИ (ПРОМO-БЛОК ПРО БАЛЛЫ) -->
-        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-600 to-teal-900 p-6 sm:p-8 shadow-2xl">
-            <div class="relative z-10 max-w-xl space-y-3">
-                <div class="inline-flex items-center gap-2 bg-black/30 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold text-emerald-300 border border-emerald-400/20">
-                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-                    <span>Скоро запуск!</span>
+        <!-- 2. ПРОМО-БАННЕР БАЛЛОВ -->
+        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-600 via-emerald-700 to-teal-900 p-6 sm:p-8 border border-emerald-500/30 shadow-xl shadow-emerald-950/50">
+            <div class="relative z-10 max-w-lg space-y-2">
+                <div class="inline-flex items-center gap-1.5 bg-yellow-400/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-yellow-300 border border-yellow-400/30">
+                    <i data-lucide="coins" class="w-3.5 h-3.5 text-yellow-400"></i>
+                    <span>Бонусная программа</span>
                 </div>
-                <h2 class="text-2xl sm:text-4xl font-black text-white leading-tight">
-                    Заказывай любимую еду и копи <span class="text-emerald-300">бонусные баллы</span>!
+                <h2 class="text-2xl sm:text-3xl font-black text-white leading-tight">
+                    Копи баллы за каждый заказ в <span class="text-yellow-400">Peshras</span>!
                 </h2>
-                <p class="text-emerald-100 text-sm sm:text-base">
-                    Совсем скоро с каждого заказа в Peshras тебе будут начисляться баллы. Вкусные обеды станут еще выгодно!
+                <p class="text-emerald-100 text-xs sm:text-sm">
+                    Совсем скоро за каждый заказ тебе будут начисляться бонусные баллы. Обменивай их на бесплатную еду и подарки!
                 </p>
             </div>
-            <!-- Фоновый декор -->
-            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-emerald-400/20 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -right-6 -bottom-10 w-48 h-48 bg-yellow-400/20 rounded-full blur-2xl pointer-events-none"></div>
         </div>
 
-        <!-- 3. КАТЕГОРИИ РЕСТОРАНОВ -->
-        <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
-            <button class="bg-emerald-500 text-black font-bold px-5 py-2.5 rounded-2xl whitespace-nowrap text-sm">🔥 Все рестораны</button>
-            <button class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium px-5 py-2.5 rounded-2xl whitespace-nowrap text-sm transition">🍔 Фастфуд</button>
-            <button class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium px-5 py-2.5 rounded-2xl whitespace-nowrap text-sm transition">🍲 Национальная кухня</button>
-            <button class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium px-5 py-2.5 rounded-2xl whitespace-nowrap text-sm transition">🍕 Пицца и Паста</button>
-            <button class="bg-gray-800 hover:bg-gray-700 text-gray-300 font-medium px-5 py-2.5 rounded-2xl whitespace-nowrap text-sm transition">🥤 Напитки</button>
-        </div>
-
-        <!-- 4. КАТАЛОГ РЕСТОРАНОВ (КРУПНЫЕ КАРТОЧКИ) -->
+        <!-- 3. СЕКЦИЯ 1: 🔥 ХИТ СЕЗОНА (Оранжево-золотой блок) -->
         <section class="space-y-4">
-            <h3 class="text-xl sm:text-2xl font-extrabold text-white">Рестораны в Исфаре</h3>
-            
-            <div id="restaurants-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-7 bg-amber-500 rounded-full"></div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-white">🔥 Хит сезона</h3>
+                </div>
+                <span class="text-xs text-amber-400 font-semibold hover:underline cursor-pointer">Смотреть все</span>
+            </div>
+
+            <!-- Горизонтальная прокрутка / Сетка блюд -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                 
-                <!-- Пример карточки 1 (Ресторан) -->
-                <div class="group bg-gray-800/60 border border-gray-700/50 rounded-3xl overflow-hidden hover:border-emerald-500/50 transition cursor-pointer">
-                    <div class="relative h-48 w-full bg-gray-700 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Ресторан" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                        <div class="absolute top-3 left-3 bg-emerald-500 text-black font-bold text-xs px-2.5 py-1 rounded-lg">20-35 мин</div>
-                        <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white font-semibold text-xs px-2.5 py-1 rounded-lg flex items-center gap-1">
-                            <i data-lucide="star" class="w-3.5 h-3.5 text-yellow-400 fill-yellow-400"></i>
-                            <span>4.9</span>
+                <!-- Блюдо 1 -->
+                <div class="bg-gray-900/80 border border-gray-800 rounded-2xl p-3 flex flex-col justify-between hover:border-amber-500/50 transition group">
+                    <div class="space-y-2">
+                        <div class="relative h-32 w-full rounded-xl overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="Плов" class="w-full h-full object-cover group-hover:scale-105 transition">
+                            <span class="absolute top-2 left-2 bg-amber-500 text-black text-[10px] font-black px-2 py-0.5 rounded-md">ХИТ</span>
                         </div>
+                        <div class="text-xs text-emerald-400 font-semibold">Ресторан «Райхон»</div>
+                        <h4 class="font-bold text-sm text-white line-clamp-1">Ош по-исфарски с казы</h4>
+                        <p class="text-[11px] text-gray-400 line-clamp-2">Рис лазер, говядина, нут, перец, казы</p>
                     </div>
-                    <div class="p-5 space-y-2">
-                        <div class="flex items-center justify-between">
-                            <h4 class="text-lg font-bold text-white group-hover:text-emerald-400 transition">Ресторан «Райхон»</h4>
-                            <span class="text-xs text-gray-400">Доставка 10 сомони</span>
-                        </div>
-                        <p class="text-xs text-gray-400 line-clamp-1">Национальная кухня, Плов, Шашлыки, Шурпо</p>
+                    <div class="mt-3 flex items-center justify-between pt-2 border-t border-gray-800">
+                        <div class="font-extrabold text-sm text-yellow-400">45 сомонӣ</div>
+                        <button class="bg-emerald-500 hover:bg-emerald-400 text-black p-2 rounded-xl transition">
+                            <i data-lucide="plus" class="w-4 h-4 stroke-[3]"></i>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Пример карточки 2 (Ресторан) -->
-                <div class="group bg-gray-800/60 border border-gray-700/50 rounded-3xl overflow-hidden hover:border-emerald-500/50 transition cursor-pointer">
-                    <div class="relative h-48 w-full bg-gray-700 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80" alt="Пицца" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                        <div class="absolute top-3 left-3 bg-emerald-500 text-black font-bold text-xs px-2.5 py-1 rounded-lg">15-25 мин</div>
-                        <div class="absolute top-3 right-3 bg-black/60 backdrop-blur-md text-white font-semibold text-xs px-2.5 py-1 rounded-lg flex items-center gap-1">
-                            <i data-lucide="star" class="w-3.5 h-3.5 text-yellow-400 fill-yellow-400"></i>
-                            <span>4.8</span>
+                <!-- Блюдо 2 -->
+                <div class="bg-gray-900/80 border border-gray-800 rounded-2xl p-3 flex flex-col justify-between hover:border-amber-500/50 transition group">
+                    <div class="space-y-2">
+                        <div class="relative h-32 w-full rounded-xl overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=80" alt="Бургер" class="w-full h-full object-cover group-hover:scale-105 transition">
+                            <span class="absolute top-2 left-2 bg-amber-500 text-black text-[10px] font-black px-2 py-0.5 rounded-md">ХИТ</span>
                         </div>
+                        <div class="text-xs text-emerald-400 font-semibold">Исфара Burger</div>
+                        <h4 class="font-bold text-sm text-white line-clamp-1">Двойной Чизбургер</h4>
+                        <p class="text-[11px] text-gray-400 line-clamp-2">Сочная котлета, чеддер, фирменный соус</p>
                     </div>
-                    <div class="p-5 space-y-2">
-                        <div class="flex items-center justify-between">
-                            <h4 class="text-lg font-bold text-white group-hover:text-emerald-400 transition">Исфара Burger & Pizza</h4>
-                            <span class="text-xs text-gray-400">Доставка 8 сомони</span>
+                    <div class="mt-3 flex items-center justify-between pt-2 border-t border-gray-800">
+                        <div class="font-extrabold text-sm text-yellow-400">32 сомонӣ</div>
+                        <button class="bg-emerald-500 hover:bg-emerald-400 text-black p-2 rounded-xl transition">
+                            <i data-lucide="plus" class="w-4 h-4 stroke-[3]"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. СЕКЦИЯ 2: ✨ НОВИНКИ (Ярко-зеленый блок) -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-7 bg-emerald-500 rounded-full"></div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-white">✨ Новинки меню</h3>
+                </div>
+                <span class="text-xs text-emerald-400 font-semibold hover:underline cursor-pointer">Смотреть все</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                
+                <!-- Блюдо 3 -->
+                <div class="bg-gray-900/80 border border-gray-800 rounded-2xl p-3 flex flex-col justify-between hover:border-emerald-500/50 transition group">
+                    <div class="space-y-2">
+                        <div class="relative h-32 w-full rounded-xl overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500&q=80" alt="Пицца" class="w-full h-full object-cover group-hover:scale-105 transition">
+                            <span class="absolute top-2 left-2 bg-emerald-500 text-black text-[10px] font-black px-2 py-0.5 rounded-md">NEW</span>
                         </div>
-                        <p class="text-xs text-gray-400 line-clamp-1">Бургеры, Пицца, Фри, Напитки</p>
+                        <div class="text-xs text-emerald-400 font-semibold">Пиццерия «Bella»</div>
+                        <h4 class="font-bold text-sm text-white line-clamp-1">Пицца Пепперони 30см</h4>
+                        <p class="text-[11px] text-gray-400 line-clamp-2">Пикантные колбаски, моцарелла, томатный соус</p>
+                    </div>
+                    <div class="mt-3 flex items-center justify-between pt-2 border-t border-gray-800">
+                        <div class="font-extrabold text-sm text-yellow-400">55 сомонӣ</div>
+                        <button class="bg-emerald-500 hover:bg-emerald-400 text-black p-2 rounded-xl transition">
+                            <i data-lucide="plus" class="w-4 h-4 stroke-[3]"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Блюдо 4 -->
+                <div class="bg-gray-900/80 border border-gray-800 rounded-2xl p-3 flex flex-col justify-between hover:border-emerald-500/50 transition group">
+                    <div class="space-y-2">
+                        <div class="relative h-32 w-full rounded-xl overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" alt="Шашлык" class="w-full h-full object-cover group-hover:scale-105 transition">
+                            <span class="absolute top-2 left-2 bg-emerald-500 text-black text-[10px] font-black px-2 py-0.5 rounded-md">NEW</span>
+                        </div>
+                        <div class="text-xs text-emerald-400 font-semibold">Кафе «Ором»</div>
+                        <h4 class="font-bold text-sm text-white line-clamp-1">Шашлык из баранины</h4>
+                        <p class="text-[11px] text-gray-400 line-clamp-2">Сочный мякотный шашлык с маринованным луком</p>
+                    </div>
+                    <div class="mt-3 flex items-center justify-between pt-2 border-t border-gray-800">
+                        <div class="font-extrabold text-sm text-yellow-400">22 сомонӣ</div>
+                        <button class="bg-emerald-500 hover:bg-emerald-400 text-black p-2 rounded-xl transition">
+                            <i data-lucide="plus" class="w-4 h-4 stroke-[3]"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. СЕКЦИЯ 3: ⭐ ПОПУЛЯРНОЕ (Фиолетовый акцент) -->
+        <section class="space-y-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-7 bg-purple-500 rounded-full"></div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-white">⭐ Популярный выбор</h3>
+                </div>
+                <span class="text-xs text-purple-400 font-semibold hover:underline cursor-pointer">Смотреть все</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                
+                <!-- Блюдо 5 -->
+                <div class="bg-gray-900/80 border border-gray-800 rounded-2xl p-3 flex flex-col justify-between hover:border-purple-500/50 transition group">
+                    <div class="space-y-2">
+                        <div class="relative h-32 w-full rounded-xl overflow-hidden bg-gray-800">
+                            <img src="https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=500&q=80" alt="Манты" class="w-full h-full object-cover group-hover:scale-105 transition">
+                            <span class="absolute top-2 left-2 bg-purple-500 text-white text-[10px] font-black px-2 py-0.5 rounded-md">ТОП</span>
+                        </div>
+                        <div class="text-xs text-emerald-400 font-semibold">Ресторан «Райхон»</div>
+                        <h4 class="font-bold text-sm text-white line-clamp-1">Манты с рубленым мясом</h4>
+                        <p class="text-[11px] text-gray-400 line-clamp-2">5 штук, сочные манты с говядиной и сметаной</p>
+                    </div>
+                    <div class="mt-3 flex items-center justify-between pt-2 border-t border-gray-800">
+                        <div class="font-extrabold text-sm text-yellow-400">25 сомонӣ</div>
+                        <button class="bg-emerald-500 hover:bg-emerald-400 text-black p-2 rounded-xl transition">
+                            <i data-lucide="plus" class="w-4 h-4 stroke-[3]"></i>
+                        </button>
                     </div>
                 </div>
 
@@ -118,33 +218,73 @@
 
     </main>
 
-    <!-- 5. ПОДВАЛ (FOOTER С ИНФОРМАЦИОННЫМИ ССЫЛКАМИ) -->
-    <footer class="bg-gray-950 border-t border-gray-800 mt-12 py-8 px-4 text-gray-400 text-sm">
+    <!-- 6. ФУТЕР (ИНФОРМАЦИЯ О СЕРВИСЕ) -->
+    <footer class="bg-gray-950 border-t border-gray-800/80 mt-12 py-10 px-4 text-gray-400 text-sm">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="space-y-3">
-                <div class="text-xl font-black text-emerald-500">PESHRAS.DELIVERY</div>
-                <p class="text-xs text-gray-500">Единая служба доставки еды из лучших ресторанов и кафе города Исфара.</p>
+                <div class="text-xl font-black text-white flex items-center gap-2">
+                    <span class="text-emerald-400">PESHRAS</span>
+                    <span class="text-yellow-400 text-xs px-2 py-0.5 bg-yellow-400/10 rounded border border-yellow-400/20">DELIVERY</span>
+                </div>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    Единая служба доставки еды из лучших ресторанов и кафе города Исфара. Быстро, вкусно и с гарантией качества!
+                </p>
             </div>
             <div class="space-y-2">
-                <div class="font-bold text-white">Информация</div>
-                <ul class="space-y-1.5 text-xs">
-                    <li><a href="#" class="hover:text-emerald-400">О нас</a></li>
-                    <li><a href="#" class="hover:text-emerald-400">Условия доставки и оплаты</a></li>
-                    <li><a href="#" class="hover:text-emerald-400">Политика конфиденциальности</a></li>
+                <div class="font-bold text-white text-sm">Информация для пользователей</div>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-emerald-400 transition">О нас</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Условия доставки и оплаты</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Политика конфиденциальности</a></li>
                 </ul>
             </div>
             <div class="space-y-2">
-                <div class="font-bold text-white">Партнерам и Курьерам</div>
-                <ul class="space-y-1.5 text-xs">
-                    <li><a href="/partner" class="hover:text-emerald-400">Вход для ресторанов</a></li>
-                    <li><a href="#" class="hover:text-emerald-400">Стать курьером</a></li>
+                <div class="font-bold text-white text-sm">Партнерам и Курьерам</div>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="/partner" class="hover:text-emerald-400 transition">Личный кабинет ресторана</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Как стать курьером Peshras</a></li>
+                    <li><a href="/admin" class="hover:text-emerald-400 transition">Панель администратора</a></li>
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto border-t border-gray-900 mt-6 pt-4 text-center text-xs text-gray-600">
-            © 2026 Peshras Delivery. Все права защищены.
+        <div class="max-w-7xl mx-auto border-t border-gray-900 mt-8 pt-4 text-center text-xs text-gray-500">
+            © 2026 Peshras Delivery. Все права защищены. Все цены указаны в сомонӣ.
         </div>
     </footer>
+
+    <!-- 7. НИЖНЯЯ НАВИГАЦИОННАЯ ПАНЕЛЬ (BOTTOM NAV BAR) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-50 bg-gray-950/95 backdrop-blur-lg border-t border-gray-800 px-4 py-2">
+        <div class="max-w-md mx-auto flex items-center justify-around">
+            
+            <!-- Главная -->
+            <button class="flex flex-col items-center gap-1 text-emerald-400 font-bold">
+                <i data-lucide="home" class="w-5 h-5"></i>
+                <span class="text-[10px]">Главная</span>
+            </button>
+
+            <!-- Рестораны -->
+            <button class="flex flex-col items-center gap-1 text-gray-400 hover:text-emerald-400 font-medium transition">
+                <i data-lucide="utensils" class="w-5 h-5"></i>
+                <span class="text-[10px]">Рестораны</span>
+            </button>
+
+            <!-- Корзина с бэйджем -->
+            <button class="relative flex flex-col items-center gap-1 text-gray-400 hover:text-emerald-400 font-medium transition">
+                <div class="relative">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span id="nav-cart-count" class="absolute -top-1.5 -right-2 bg-yellow-400 text-black font-extrabold text-[9px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+                </div>
+                <span class="text-[10px]">Корзина</span>
+            </button>
+
+            <!-- Профиль -->
+            <button class="flex flex-col items-center gap-1 text-gray-400 hover:text-emerald-400 font-medium transition">
+                <i data-lucide="user" class="w-5 h-5"></i>
+                <span class="text-[10px]">Профиль</span>
+            </button>
+
+        </div>
+    </nav>
 
     <script>
         // Инициализация иконок Lucide
